@@ -99,6 +99,8 @@ inverse_modelling_tfo/tools/intensity_summed_sim_data.pkl
 Randalls*Folder/data/
 Randalls*Folder/trash/
 Randalls*Folder/models/
+results/
+Randalls*Folder/results/
 
 # Models
 models/
