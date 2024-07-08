@@ -5,90 +5,24 @@ A set of extensions for the PyTorch nn.Module class. These let you quickly creat
 """
 
 from typing import List, Literal, Optional
-from altair import layer
-import torch.nn as nn
+from torch import nn
 import torch
+from model_trainer.custom_models import PerceptronBD
 
 
-class PerceptronReLU(nn.Module):
-    """A Multi-Layer Fully-Connected Perceptron based on the array node counts.
-    The first element is the number of inputs to the network, each consecutive number is the number
-    of nodes(inputs) in each hidden layers and the last element represents the number of outputs.
+def he_initilization(module) -> None:
     """
+    Initialize the weights of the module using the He initialization method. This is a common initialization method for
+    ReLU based networks. The weights are initialized using a normal distribution with a mean of 0 and a standard
+    deviation of sqrt(2 / n), where n is the number of input units in the weight tensor.
 
-    def __init__(self, node_counts: List[int]) -> None:
-        super().__init__()
-        self.layers: List[nn.Module]
-        self.layers = [nn.Linear(node_counts[0], node_counts[1])]
-        for index, count in enumerate(node_counts[1:-1], start=1):
-            self.layers.append(nn.ReLU())
-            self.layers.append(nn.Linear(count, node_counts[index + 1]))
-        self.layers.append(nn.Flatten())
-        self.model = nn.Sequential(*self.layers)
+    Args:
+        module: nn.Module The module whose weights need to be initialized
 
-    def forward(self, x):
-        return self.model(x)
-
-
-class PerceptronBN(nn.Module):
-    """A Multi-Layer Fully-Connected Perceptron based on the array node counts with Batch Normalization!
-    The first element is the number of inputs to the network, each consecutive number is the number
-    of nodes(inputs) in each hidden layers and the last element represents the number of outputs.
+    Returns:
+        None: The weights are initialized in-place
     """
-
-    def __init__(self, node_counts: List[int]) -> None:
-        super().__init__()
-        self.layers: List[nn.Module]
-        self.layers = [nn.Linear(node_counts[0], node_counts[1])]
-        for index, count in enumerate(node_counts[1:-1], start=1):
-            self.layers.append(nn.BatchNorm1d(count))
-            self.layers.append(nn.ReLU())
-            self.layers.append(nn.Linear(count, node_counts[index + 1]))
-        self.layers.append(nn.Flatten())
-        self.model = nn.Sequential(*self.layers)
-
-    def forward(self, x):
-        return self.model(x)
-
-
-class PerceptronDO(nn.Module):
-    """A Multi-Layer Fully-Connected Perceptron based on the array node counts with DropOut!
-    ## How to Use
-    1. The first element is the number of inputs to the network, each consecutive number is the number
-    of nodes(inputs) in each hidden layers and the last element represents the number of outputs.
-    2. You can set the Dropout Rate between each layer using dropout_rates. This defaults to 0.5 for each layer. Make
-    sure it's length is 2 less than [node_counts]
-    3. Set the Dropout rate to 0.0 to effectively nullify it
-    """
-
-    def __init__(self, node_counts: List[int], dropout_rates: Optional[List[float]] = None) -> None:
-        super().__init__()
-        self.layers: List[nn.Module]
-        if dropout_rates is None:
-            linear_layer_count = len(node_counts) - 1
-            dropout_layer_count = linear_layer_count - 1
-            dropout_rates = [0.5] * dropout_layer_count
-        self.layers = [nn.Linear(node_counts[0], node_counts[1])]
-        for index, count in enumerate(node_counts[1:-1], start=1):
-            self.layers.append(nn.Dropout1d(dropout_rates[index - 1]))
-            self.layers.append(nn.ReLU())
-            self.layers.append(nn.Linear(count, node_counts[index + 1]))
-        self.layers.append(nn.Flatten())
-        self.model = nn.Sequential(*self.layers)
-
-    def forward(self, x):
-        return self.model(x)
-
-
-class PerceptronBD(nn.Module):
-    """A Multi-Layer Fully-Connected Perceptron based on the array node counts with Batch Normalization and DropOut!
-    The first element is the number of inputs to the network, each consecutive number is the number of nodes(inputs)
-    in each hidden layers and the last element represents the number of outputs. The number of layers is 1 less than
-    the length of [node_counts]
-
-    The input should be a 2D tensor with the shape (batch_size, feature_size). The output would also be a 2D tensor of
-    shape (batch_size, output_feature_size), where output_feature_size is the last element of the [node_counts]
-    """
+<<<<<<< HEAD
 
     def __init__(self, node_counts: List[int], dropout_rates: Optional[List[float]] = None) -> None:
         """
@@ -126,6 +60,12 @@ class PerceptronBD(nn.Module):
         for layer in self.layers:
             if hasattr(layer, 'reset_parameters'):
                 layer.reset_parameters()
+=======
+    if isinstance(module, nn.Linear):
+        nn.init.kaiming_normal_(module.weight, nonlinearity="relu")
+        if module.bias is not None:
+            nn.init.zeros_(module.bias)
+>>>>>>> 7ce82b729acb17bf066719889a92d84ae1c1ee4c
 
 
 class FeatureResidual(torch.nn.Module):
@@ -341,6 +281,7 @@ class CNN1d(torch.nn.Module):
                 self.layers.append(nn.Flatten())
 
         self.model = nn.Sequential(*self.layers)
+        self.apply(he_initilization)
 
     def forward(self, x):
         return self.model(x)
@@ -584,47 +525,192 @@ class SplitChannelCNN(nn.Module):
         return x
 
 
-# class SpatialReducer(nn.Module):
-#     """
-#     A network that reduces spatial features by taking averages. The reduces features are then connected to a regular
-#     FC network complete with ReLU, BatchNorm and Dropout layers. The final layer is a linear layer with no activation.
+class PMFEstimatorNet(nn.Module):
+    def __init__(self, node_counts: List[int], dropout_rates: Optional[List[float]] = None):
+        """
+        A simple fully connected network that takes in a set of features and outputs a set of probabilities.
+        The final layer is a sigmoid layer which gets normalized by the sum of all the outputs. All outputs are always
+        positive.
 
-#     The input should be a 2D tensor with the shape (batch_size, spatial_features). The output would also be a 2D tensor
-#     """
+        Args:
+            node_counts: List[int] Node counts for the fully connected layers. The first element is the number of
+            inputs to the network, each consecutive number is the number of nodes(inputs) in each hidden layers. The
+            last element is the number of outputs
+            dropout_rates: Optional[List[float]] Dropout rates for the fully connected layers. The length must be the 1
+            less than the length of fc_node_counts. Set this to None to avoid Dropout Layers. (Analogous to setting
+            dropout values to 0). Defaults to None / no dropout layer
+        """
+        super(PMFEstimatorNet, self).__init__()
+        ## Sanity Check
+        if dropout_rates is not None:
+            assert len(node_counts) - 1 == len(dropout_rates), "length of dropout_rates must be 1 less than node counts"
 
-#     def __init__(
-#         self,
-#         input_channels: int,
-#         channel_length: int,
-#         reduction_factors: List[int],
-#         fc_output_nodes: List[int],
-#         fc_dropouts: Optional[List[float]],
-#     ):
-#         """
-#         Args:
-#             input_channels: int Number of input channels
-#             channel_length: int Length of each input channel
-#             reduction_factors: List[int] List of reduction levels. Each memeber represents one reduction operation, where
-#             the input length is reduced by that factor. The output of each reduction level is concatenated to the first
-#             layer of the following FC network.
-#             fc_output_counts: List[int] Node counts for the fully connected layers.
-#             fc_dropouts: Optional[List[float]] Dropout rates for the fully connected layers. The length must be the 1 
-#             less than the length of fc_node_counts. Set this to None to avoid Dropout Layers. (Analogous to setting 
-#             dropout values to 0). Defaults to None / no dropout layer
-#         """
-#         # Sanity Check
-#         assert len(fc_output_nodes) > 0, "fc_output_nodes must have atleast 1 element"
-#         if fc_dropouts is not None:
-#             assert len(fc_dropouts) == len(fc_output_nodes) - 1, "fc_dropouts must be 1 less than fc_output_nodes"
-#         # Divisibility Check
-#         for level in reduction_factors:
-#             assert channel_length % level == 0, f"channel_length must be divisible by each element in reduction_factors"
+        ## Create the Model Architecture
+        self.layers: List[nn.Module] = [nn.Linear(node_counts[0], node_counts[1])]
+        for index, count in enumerate(node_counts[1:-1], start=1):
+            self.layers.append(nn.BatchNorm1d(count))
+            if dropout_rates is not None:
+                self.layers.append(nn.Dropout1d(dropout_rates[index - 1]))
+            self.layers.append(nn.ReLU())
+            self.layers.append(nn.Linear(count, node_counts[index + 1]))
+        self.layers.append(nn.Flatten())
+        self.layers.append(nn.Sigmoid())  # Finishes in a sigmoid layer
+
+        ## Initialize the model
+        self.model = nn.Sequential(*self.layers)
+        self.apply(he_initilization)
+
+    def forward(self, x):
+        """
+        Applies the model to the input tensor
+        """
+        x = self.model(x)
+        x = x / torch.sum(x, dim=1, keepdim=True)
+        return x
 
 
-#         super().__init__()
-#         self.reduction_levels = reduction_factors
-#         self.reduction_layers = nn.ModuleList([nn.AvgPool1d(channel_length // level, channel_length // level, padding=0)  for level in reduction_factors])
-#         self.fc = PerceptronBD(
-#             [input_channels * len(reduction_factors) * len(reduction_factors)] + fc_node_counts, fc_dropouts
-#         )
-#         self.layers = self.reduction_layers + self.fc.layers
+class DualPMFTMPNet(nn.Module):
+    """
+    A custom network that employs two separate PMF estimators for the pathlength distribution of two wavelenghts and
+    then merges the output from those to to finally estimate saturation and concentration.
+    """
+
+    def __init__(
+        self,
+        pmf_nodes: List[int],
+        terminal_fc_nodes: List[int],
+        pmf_dropouts: Optional[List[float]] = None,
+        terminal_fc_dropouts: Optional[List[float]] = None,
+    ):
+        """
+        Args:
+            pmf_nodes: List[int] Node counts for the fully connected layers of the PMF Estimator. The first element is
+            the number of inputs to the network, each consecutive number is the number of nodes(inputs) in each hidden
+            layers. The last element is the number of outputs
+            terminal_fc_nodes: List[int] Node counts for the fully connected layers after the PMF Estimator. The first
+            element is the number of inputs to the network, each consecutive number is the number of nodes(inputs) in each
+            hidden layers. The last element is the number of outputs
+            pmf_dropouts: Optional[List[float]] Dropout rates for the fully connected layers of the PMF Estimator. The
+            length must be the 1 less than the length of fc_node_counts. Set this to None to avoid Dropout Layers.
+            (Analogous to setting dropout values to 0). Defaults to None / no dropout layer
+            terminal_fc_dropouts: List[float] Dropout rates for the fully connected layers after the PMF Estimator. The
+            length must be the 1 less than the length of fc_node_counts. Set this to None to avoid Dropout Layers.
+            (Analogous to setting dropout values to 0). Defaults to None / no dropout layer
+
+        Model Input: Takes a 2D tensor, with the first half belonging to PMF1 and the second half belonging to PMF2
+        Model Output: This model outputs a tuple of length 2: ([PMF1, PMF2], Output of Terminal FC)
+        Custom Loss: This model requires a custom loss function that takes in the tuple output and the target values
+        """
+        ## Sanity Check
+        if pmf_dropouts is not None:
+            assert len(pmf_nodes) - 1 == len(pmf_dropouts), "length of pmf_dropouts must be 1 less than pmf_nodes"
+        if terminal_fc_dropouts is not None:
+            assert len(terminal_fc_nodes) == len(terminal_fc_dropouts), "terminal dropouts len must equal its nodes"
+
+        ## Initialize the Model
+        super(DualPMFTMPNet, self).__init__()
+        self.pmf_estimator1 = PMFEstimatorNet(pmf_nodes, pmf_dropouts)
+        self.pmf_estimator2 = PMFEstimatorNet(pmf_nodes, pmf_dropouts)
+        terminal_fc_nodes = [pmf_nodes[-1] * 2] + terminal_fc_nodes
+        self.terminal_fc = PerceptronBD(terminal_fc_nodes, terminal_fc_dropouts)
+
+    def forward(self, x):
+        pmf1 = self.pmf_estimator1(x[:, : x.shape[1] // 2])
+        pmf2 = self.pmf_estimator2(x[:, x.shape[1] // 2 :])
+        pmf = torch.cat([pmf1, pmf2], dim=1)
+        return pmf, self.terminal_fc(pmf)
+
+
+class SkipConnect(nn.Module):
+    """
+    A special variation of an MLP where certain inputs connect directly to a hidden layer.
+
+    We deviced this network to incorporate depth data onto the MLP. Since the depth info is more impactful than the
+    intensity, it makes sense to connect it deeper onto model path compared to the intensity data.
+    """
+
+    def __init__(
+        self,
+        node_counts: List[int],
+        skip_connect_indices: List[int],
+        skip_connect_layer_number: int,
+        dropout_rates: Optional[List[float]] = None,
+    ):
+        """
+        Args:
+            node_counts: List[int] Node counts for the fully connected layers. [Input, Hidden1, Hidden2, ..., Output]
+            The input node_count should not include the skip_connect_indices
+            skip_connect_indices: List[int] Indices of the input features that should be connected directly to the
+            skip_connect_layer_number layer.
+            skip_connect_layer_number: int The layer number to which the skip_connect_indices should be connected to.
+            0 conencts it to the input layer, 1 to the first hidden layer and so on.
+            dropout_rates: Optional[List[float]] Dropout rates for the fully connected layers. The length must be the 1
+            less than the length of fc_node_counts. Set this to None to avoid Dropout Layers.
+
+        Design of the network:
+        1. The network is divided into two parts: left and right. The left part is the part before the skip connection and
+            the right part is the part after the skip connection.
+        2. The left part is simple MLP that always ends in a linear layer. The skip connect indices are concatenated
+            to the output of the left part.
+        3. The right part is also a simple MLP that always starts with non-linear layers. The input to the right part
+            is the output of the left part concatenated with the skip connect indices. This also ends in a linear layer.
+
+        """
+        ## Sanity Check
+        if dropout_rates is not None:
+            assert len(node_counts) - 1 == len(dropout_rates), "length of dropout_rates must be 1 less than node counts"
+        else:
+            dropout_rates = [0.0] * (len(node_counts) - 1)
+        assert len(node_counts) > 1, "node_counts must have atleast 2 elements"
+        assert skip_connect_layer_number < len(node_counts) - 1, "skip_connect_layer_number must be less than #layers"
+
+        super().__init__()
+
+        self.skip_indices = skip_connect_indices
+
+        ## Create the Model Architecture
+        # Break the network into two parts: before and after the skip connection
+        self.node_list_left = node_counts[: skip_connect_layer_number + 1]
+        dropout_rates_left = dropout_rates[:skip_connect_layer_number]
+        self.node_list_right = node_counts[skip_connect_layer_number:]
+        dropout_rates_right = dropout_rates[skip_connect_layer_number:]
+        self.node_list_right[0] += len(skip_connect_indices)
+        self.left_network: nn.Module
+        self.righ_network: nn.Module
+
+        # Define the left side of the network
+        if skip_connect_layer_number == 0:
+            self.left_network = nn.Identity()
+        else:
+            self.left_network_layers = [nn.Linear(self.node_list_left[0], self.node_list_left[1])]
+            for index, count in enumerate(self.node_list_left[1:-1]):
+                self.left_network_layers += [nn.BatchNorm1d(self.node_list_left[index + 1])]
+                if dropout_rates_left[index] > 0:
+                    self.left_network_layers += [nn.Dropout(dropout_rates_left[index])]
+                self.left_network_layers += [nn.ReLU()]
+                self.left_network_layers += [nn.Linear(count, self.node_list_left[index + 1])]
+            self.left_network = nn.Sequential(*self.left_network_layers)
+
+        # Define the right side of the network
+        if skip_connect_layer_number == len(node_counts) - 1:
+            self.right_network = nn.Identity()
+        else:
+            self.right_network_layers = []
+            for index, count in enumerate(self.node_list_right[:-1]):
+                self.right_network_layers.append(nn.BatchNorm1d(self.node_list_right[index]))
+                if dropout_rates_right[index] > 0:
+                    self.right_network_layers.append(nn.Dropout(dropout_rates_right[index]))
+                self.right_network_layers.append(nn.ReLU())
+                self.right_network_layers.append(nn.Linear(count, self.node_list_right[index + 1]))
+            self.right_network_layers.append(nn.Flatten())
+            self.right_network = nn.Sequential(*self.right_network_layers)
+        # self.left_network.apply(he_initilization)
+        # self.righ_network.apply(he_initilization)
+
+    def forward(self, x):
+        non_skip_indices = [i for i in range(x.shape[1]) if i not in self.skip_indices]
+        skip_data = x[:, self.skip_indices]
+        non_skip_data = x[:, non_skip_indices]
+        left_output = self.left_network(non_skip_data)
+        x = torch.cat([left_output, skip_data], dim=1)
+        return self.right_network(x)

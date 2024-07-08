@@ -29,13 +29,13 @@ from inverse_modelling_tfo.features.data_transformations import (
 
 # Data Setup
 # ==========================================================================================
-out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "I1_and_I2.pkl"
-# out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "pulastion_ratio.pkl"
+# out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "I1_and_I2.pkl"
+out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "pulsation_ratio_interp.pkl"
+# out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "logI2_by_I1.pkl"
 # out_dest = Path(__file__).parent.parent.parent / "data" / "processed_data" / "processed1_max_long_range.pkl"
 config_dest = out_dest.with_suffix(".json")
 
-in_src = Path(r'/home/rraiyan/simulations/tfo_sim/data/compiled_intensity/dan_iccps_pencil.pkl')
-# in_src = Path(r"/home/rraiyan/simulations/tfo_sim/data/compiled_intensity/weitai_data.pkl")
+in_src = Path(r"/home/rraiyan/simulations/tfo_sim/data/compiled_intensity/pencil2.pkl")
 config_src = in_src.with_suffix(".json")
 
 fconc_rounding = 2
@@ -51,6 +51,7 @@ config_based_normalization(data, config_src)
 data = data.drop(columns="Uterus Thickness")
 
 # Interpolate intensity to remove noise
+# IF YOU WANT TO INTERPOLATE LARGE DATASET DO NOT USE THIS - USE TEST_PIPLINE2.ipynb
 # data = interpolate_exp(data, weights=(1, 0.6), interpolation_function=exp_piecewise_affine, break_indices=[4, 12, 20])
 # data["Intensity"] = data["Interpolated Intensity"]  # Replace OG intensity with interpolated intensity
 # data = data.drop(columns="Interpolated Intensity")  # Cleanup
@@ -118,8 +119,9 @@ config = {
     "labels": fb1.get_label_names(),
     "features": fb1.get_feature_names(),
     "feature_builder_txt": str(fb1),
-    "preprocessing_description": "Detector Normalization -> Long to Wide -> Row Combination -> keep I1 and I2 both",
+    "preprocessing_description": "Detector Normalization -> Long to Wide -> Row Combination -> Calculate log(I2)/log(I1)",
     "comments": "Most vanilla data pipeline/feature extraction. No normalization, no feature engineering. Just the raw data reshaped for the model.",
+    "data used": "/home/rraiyan/simulations/tfo_sim/data/compiled_intensity/pencil2.pkl",
 }
 
 # Save data and config
