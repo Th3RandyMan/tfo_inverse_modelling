@@ -101,6 +101,8 @@ Randalls*Folder/trash/
 Randalls*Folder/models/
 results/
 Randalls*Folder/results/
+output_log.txt
+
 
 # Models
 models/

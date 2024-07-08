@@ -1,18 +1,18 @@
-import os
 import sys
+import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "2"
 sys.path.append(r'/home/rlfowler/Documents/research/tfo_inverse_modelling')
 import argparse
 import pandas as pd
 import numpy as np
-from inverse_modelling_tfo.model_training import TorchLossWrapper
+from model_trainer import CombineMethods, HoldOneOut, TorchLossWrapper  # model_trainer is a package now. Not in this repo
 import torch.nn as nn   # PyTorch's neural network module
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
-from inverse_modelling_tfo.model_training.DataLoaderGenerators import DataLoaderGenerator
-from inverse_modelling_tfo.model_training.loss_funcs import LossFunction, SumLoss
-from inverse_modelling_tfo.model_training.validation_methods import RandomSplit, ValidationMethod
-from inverse_modelling_tfo.model_training import ModelTrainer 
+from model_trainer.DataLoaderGenerators import DataLoaderGenerator
+from model_trainer.loss_funcs import LossFunction, SumLoss
+from model_trainer.validation_methods import RandomSplit, ValidationMethod
+from model_trainer import ModelTrainer 
 import matplotlib.pyplot as plt
 import torchinfo
 from inverse_modelling_tfo.visualization.distributions import generate_model_error_and_prediction
@@ -27,35 +27,41 @@ class Parameters:
     # Default parameters
     DATA_PATH = r'/home/rlfowler/Documents/research/tfo_inverse_modelling/Randalls Folder/data/randall_data_intensities.pkl'
     output_labels:str = "all"
-    subset_type:str = "random"
-    apply_log:bool = False
+    subset_type:str = "filter1"
+    apply_log:bool = True
     random_seed:int = 42
     sample_size:float = 0.05
     test_size:float = 0.2
     data_loader_params = {
     'shuffle': True,    # The dataloader will shuffle its outputs at each epoch
     'num_workers': 0,   # The number of workers that the dataloader will use to generate the batches
+    'drop_last': True,  # Drop the last batch if it is smaller than the batch size
     }
     batch_size:int = 32
-    num_epochs:int = 1
-    model_type:str = "SplitCNN"   # Perceptron or SplitCNN
-    depth_of_layers = [12, 8]#[20, 10, 10]
+    num_epochs:int = 2
+    model_type:str = "Perceptron"   # Perceptron or SplitCNN
+    depth_of_layers = [40, 30, 20, 10]
     cnn_out_channels = [4, 8, 16]   # Number of output channels for each convolutional layer
     cnn_split:int = 2   # Number of channels to split the input into, 2 would divide 40 into two 20s
     cnn_kernel_sizes = [10, 5, 3]  # Kernel sizes for each convolutional layer
     # missing cnn padding, strides, dialations?
-    dropout = [0.5] * (len(depth_of_layers) + 1)
+    dropout = [0] * (len(depth_of_layers) + 1)
     cnn_dropout = [0.5,0.5]
-    validation_method:ValidationMethod = RandomSplit(0.8)
+    validation_method:ValidationMethod = None#RandomSplit(0.8)
+    validation_type:str = 'holdout0'#None
     criterion:LossFunction = None#TorchLossWrapper(nn.MSELoss(), name="mse")
     loss_function:str = "mse"
     optimizer:str = "SGD"
-    lr:float = 3e-4
+    lr:float = 5e-4
     momentum:float = 0.9
     weight_decay:float = 0.0
     bin_count:int = 50
-    report_name = "default_report"
+    hue:str = 'Fetal Radius'
+    report_name = "default_report1"
     report_title = "Default Title"
+    # color_offset = 20 # Offset for the color in the hue (https://matplotlib.org/2.0.2/examples/color/named_colors.html)
+    # color_jump = 3
+    #colors = ['blue', 'orange', 'green', 'red', 'purple', 'brown', 'pink', 'gray', 'olive', 'cyan', 'black', 'yellow', 'lime', 'teal', ]
 
     def __str__(self):
         return f"Parameters(\n" + \
@@ -78,14 +84,17 @@ class Parameters:
             f"\toptimizer: {self.optimizer}\n" + \
             f"\tlr: {self.lr}\n" + \
             f"\tmomentum: {self.momentum}\n" + \
+            f"\tweight_decay: {self.weight_decay}\n" + \
             f"\tbin_count: {self.bin_count}\n" + \
             f")"
     
     def set_model(self, type:int):
         if type == 1:   # Perceptron model
             self.depth_of_layers = [20, 10, 10]
+            self.model_type = "Perceptron"
         elif type == 2: # Perceptron model
             self.depth_of_layers = [20, 30, 20]
+            self.model_type = "Perceptron"
         elif type == 3: # SplitCNN model
             self.depth_of_layers = [12, 8]  # Include cnn variables
             self.dropout = [0.5]*len(self.depth_of_layers)  # New default in case set_dropout is not called
@@ -107,6 +116,12 @@ class Parameters:
             self.model_type = "SplitCNN"
             self.weight_decay = 1e-4
             self.cnn_split = 4
+        elif type == 7: # Perceptron Model
+            self.depth_of_layers = [40, 30, 20, 10]
+            self.model_type = "Perceptron"
+        elif type == 8: # Perceptron Model
+            self.depth_of_layers = [30, 20, 10, 10, 10]
+            self.model_type = "Perceptron"
         else:  
             raise ValueError(f"Depth type {type} not recognized")
         
@@ -118,12 +133,21 @@ class Parameters:
             self.dropout = [0.4]*L
         elif type == 3:
             self.dropout = [0.3]*L
+        elif type == 4:
+            self.dropout = [0.1]*L
+        elif type == 5:
+            self.dropout = [0.01]*L
+        elif type == 6:
+            self.dropout = [0]*L
         else:
             raise ValueError(f"Dropout type {type} not recognized")
 
     def set_validation(self, type:str):
         if type == 'random':
             self.validation_method = RandomSplit(0.8)
+        elif type[:4] == 'hold':
+            self.validation_method = None
+            self.validation_type = type
         else:
             raise ValueError(f"Validation type {type} not recognized")
         
@@ -137,6 +161,10 @@ class Parameters:
         else:
             raise ValueError(f"Criterion type {type} not recognized")
 
+    # def set_hue(self, hue:int):
+    #     TMPS = ['Maternal Wall Thickness','Fetal Radius','Fetal Displacement','Maternal Hb Concentration','Maternal Saturation','Fetal Hb Concentration','Fetal Saturation']
+    #     self.hue = TMPS[hue]
+
 
 def run(params:Parameters):
     # Load the data
@@ -145,15 +173,22 @@ def run(params:Parameters):
     if params.subset_type[:6] == "filter":
         if params.subset_type[6:] == "1":
             columns = ['Fetal Hb Concentration', 'Fetal Radius', 'Maternal Saturation', 'Maternal Hb Concentration']
-            to_keep = [np.unique(data['Fetal Hb Concentration'])[1::3],\
-                         np.unique(data['Fetal Radius'])[:11],\
-                         np.unique(data['Maternal Saturation'])[::2],\
-                         np.unique(data['Maternal Hb Concentration'])[::2]]
-            filtered_data = data
+            to_keep = [np.sort(np.unique(data['Fetal Hb Concentration']))[1::3],\
+                         np.sort(np.unique(data['Fetal Radius']))[:11],\
+                         np.sort(np.unique(data['Maternal Saturation']))[::2],\
+                         np.sort(np.unique(data['Maternal Hb Concentration']))[::2]]
             for col, keep in zip(columns, to_keep):
-                filtered_data = filtered_data.loc[filtered_data[col].isin(keep)]
-            data = filtered_data
-            del filtered_data, columns, to_keep
+                data = data.loc[data[col].isin(keep)]
+        elif params.subset_type[6:] == "2": # Changed fetal radius to larger values and reduced fetal saturation
+            columns = ['Fetal Hb Concentration', 'Fetal Radius', 'Maternal Saturation', 'Maternal Hb Concentration','Fetal Saturation']
+            to_keep = [np.sort(np.unique(data['Fetal Hb Concentration']))[1::3],\
+                         np.sort(np.unique(data['Fetal Radius']))[11:],\
+                         np.sort(np.unique(data['Maternal Saturation']))[::2],\
+                         np.sort(np.unique(data['Maternal Hb Concentration']))[::2],\
+                         np.sort(np.unique(data['Fetal Saturation']))[::2]\
+                            ]
+            for col, keep in zip(columns, to_keep):
+                data = data.loc[data[col].isin(keep)]
 
     # Select data to predict
     x_columns = data.columns[7:]
@@ -173,7 +208,7 @@ def run(params:Parameters):
     else:
         raise ValueError("Invalid output labels. Must be either 'all', a list of integers or str, or a single integer or str.")
     print(f"x_columns: {x_columns.tolist()}",flush=True)
-    
+        
     IN_FEATURES = len(x_columns)
     OUT_FEATURES = len(y_columns)
     print("In Features :", IN_FEATURES)  
@@ -190,6 +225,7 @@ def run(params:Parameters):
         data[x_columns] = np.log(data[x_columns])
     data.dropna(inplace=True)
 
+
     ## Scale y, sets mean to 0 and variance to 1
     y_scaler = preprocessing.StandardScaler()
     if OUT_FEATURES == 1:
@@ -202,18 +238,47 @@ def run(params:Parameters):
     data[x_columns] = x_scaler.fit_transform(data[x_columns])
 
 
+    # Set validation method # Should I add randomsplit to all options here?
+    if params.validation_method is None:
+        if params.validation_type[:7] == 'holdout':
+            if len(y_columns) == 1:
+                params.validation_method = HoldOneOut(y_columns[0], data[y_columns[0]].unique()[3])
+            else:
+                try:
+                    col = int(params.validation_type[7:])
+                    params.validation_method = HoldOneOut(y_columns[col], data[y_columns[col]].unique()[3])
+                except:
+                    if params.validation_type[7:] == '_all':
+                        params.validation_method = CombineMethods([HoldOneOut(y_columns[i], data[y_columns[i]].unique()[3]) for i in range(OUT_FEATURES)])
+                    else:
+                        raise ValueError(f"Invalid validation type {params.validation_type}")
+        elif params.validation_type[:12] == 'holdrndsplit':
+            if len(y_columns) == 1:
+                params.validation_method = CombineMethods([HoldOneOut(y_columns[0], data[y_columns[0]].unique()[3]), RandomSplit(0.9)])
+            else:
+                try:
+                    col = int(params.validation_type[12:])
+                    params.validation_method = CombineMethods([HoldOneOut(y_columns[col], data[y_columns[col]].unique()[3]), RandomSplit(0.9)])
+                except:
+                    if params.validation_type[12:] == '_all':
+                        val_methods = [HoldOneOut(y_columns[i], data[y_columns[i]].unique()[3]) for i in range(OUT_FEATURES)]
+                        val_methods.append(RandomSplit(0.9))
+                        params.validation_method = CombineMethods(val_methods)
+                    else:
+                        raise ValueError(f"Invalid validation type {params.validation_type}")
+        else:
+            raise ValueError(f"Invalid validation type {params.validation_type}")
+
+
     # Split the data
     if params.subset_type[:6] != "filter":
         if params.subset_type == "random":
-            dataset = data.sample(frac=params.sample_size, random_state=params.random_seed)
+            data = data.sample(frac=params.sample_size, random_state=params.random_seed)
         elif params.subset_type == "all":
-            dataset = data
+            pass
         else:
             raise ValueError("Invalid subset type. Must be either 'random' or 'all'.")
-    else:
-        dataset = data
-    del data
-
+    
 
     # Create the model
     if params.model_type == "Perceptron":
@@ -223,12 +288,11 @@ def run(params:Parameters):
         from inverse_modelling_tfo.model_training.custom_models import SplitChannelCNN
         model = SplitChannelCNN(IN_FEATURES, params.cnn_split, params.cnn_out_channels, params.cnn_kernel_sizes, fc_output_node_counts=[*params.depth_of_layers, OUT_FEATURES], fc_dropouts=params.dropout, cnn_dropouts=params.cnn_dropout)
     else:
-        raise ValueError(f"Model type {params.model_type} not recognized")
-    
+        raise ValueError(f"Model type {params.model_type} not recognized")    
 
 
     # Create the model trainer
-    dataloader_gen = DataLoaderGenerator(dataset, x_columns, y_columns, params.batch_size, params.data_loader_params)
+    dataloader_gen = DataLoaderGenerator(data, x_columns, y_columns, params.batch_size, params.data_loader_params)
     trainer = ModelTrainer(model, dataloader_gen, params.validation_method, params.criterion)
     if params.optimizer == "SGD":
         from torch.optim import SGD
@@ -257,47 +321,51 @@ def run(params:Parameters):
             plt.yscale('log')
         plt.show()
 
-    # Get predictions
+
+    # Change Batch Size for resolution in histograms
     trainer.set_batch_size(4096)
+
+    # Get predictions
     train_error, train_pred = generate_model_error_and_prediction(trainer.model, trainer.train_loader, y_columns, y_scaler)
     val_error, val_pred = generate_model_error_and_prediction(trainer.model, trainer.validation_loader, y_columns, y_scaler)
 
-    # Plot error distributions
-    fig_dist, axes = plt.subplots(3, len(y_columns), squeeze=True, figsize=(17, 8), sharey=True)
     train_data = y_scaler.inverse_transform(trainer.train_loader.dataset[:][1].cpu())
     val_data = y_scaler.inverse_transform(trainer.validation_loader.dataset[:][1].cpu())
-    if len(axes.shape) == 1:
+    
+    fig_dist, axes = plt.subplots(3, len(y_columns), squeeze=True, figsize=(17, 8), sharey=True)
+    if len(axes.shape) == 1:    # If only one column
         axes = axes.reshape(3, 1)
 
-    for i in range(len(y_columns)):
+    for i in range(len(y_columns)): # Can change range and bins by changing the range param in hist instead of axis
+        xlim = [min(train_data[:, i].min(), val_data[:, i].min()), max(train_data[:, i].max(), val_data[:, i].max())]
         # Plot Errors
         ax = axes[0, i]
         plt.sca(ax)
         column_name = train_error.columns[i]
-        plt.hist(train_error[column_name], bins=params.bin_count, color='blue', alpha=0.5, label='Train')
-        plt.hist(val_error[column_name], bins=params.bin_count, color='orange', alpha=0.5, label='Validation')
-
+        weights = np.ones(max(len(train_error[column_name]), len(val_error[column_name]))) / (len(train_error[column_name]) + len(val_error[column_name]))
+        plt.hist(train_error[column_name], bins=params.bin_count, color='blue', alpha=0.5, label='Train', weights=weights[:len(train_error[column_name])])
+        plt.hist(val_error[column_name], bins=params.bin_count, color='orange', alpha=0.5, label='Validation', weights=weights[:len(val_error[column_name])])
+        axes[0, i].set_xlim([0, max(train_error[column_name].max(), val_error[column_name].max())])
         
         # Plot Predictions
         ax = axes[1, i]
         plt.sca(ax)
         column_name = train_pred.columns[i]
-        plt.hist(train_pred[column_name], bins=params.bin_count, color='blue', alpha=0.5, label='Train')
-        plt.hist(val_pred[column_name], bins=params.bin_count, color='orange', alpha=0.5, label='Validation')
-
+        weights = np.ones(max(len(train_pred[column_name]), len(val_pred[column_name]))) / (len(train_pred[column_name]) + len(val_pred[column_name]))
+        plt.hist(train_pred[column_name], bins=params.bin_count, color='blue', alpha=0.5, label='Train', weights=weights[:len(train_pred[column_name])])
+        plt.hist(val_pred[column_name], bins=params.bin_count, color='orange', alpha=0.5, label='Validation', weights=weights[:len(val_pred[column_name])])
+        axes[1, i].set_xlim(xlim)
         
         # Plot Ground Truth
         ax = axes[2, i]
         plt.sca(ax)
-        plt.hist(train_data[:, i], bins=params.bin_count, color='blue', alpha=0.5, label='Train')
-        plt.hist(val_data[:, i], bins=params.bin_count, color='orange', alpha=0.5, label='Validation')
+        weights = np.ones(max(len(train_data[:, i]), len(val_data))) / (len(train_data[:, i]) + len(val_data[:, i]))
+        plt.hist(train_data[:, i], bins=params.bin_count, color='blue', alpha=0.5, label='Train', weights=weights[:len(train_data[:, i])])
+        plt.hist(val_data[:, i], bins=params.bin_count, color='orange', alpha=0.5, label='Validation', weights=weights[:len(val_data[:, i])])
+        axes[2, i].set_xlim(xlim)
 
         # X Label for the bottommost row
         plt.xlabel(y_columns[i])
-        
-    # # Add text to the left of each row of plots
-    # for i, label in enumerate(['MAE Error', 'Prediction', 'Ground Truth']):
-    #     fig_dist.text(0, (2.5-i)/3, label, ha='center', va='center', rotation='vertical')
 
     # Y Labels
     axes_labels = ['MAE Error', 'Prediction', 'Ground Truth']
@@ -308,13 +376,26 @@ def run(params:Parameters):
     axes[0, 0].legend()
     plt.tight_layout()
 
+    # Create loss string
+    losses_str = ""
+    for i, loss in enumerate(trainer.loss_func.loss_tracker.epoch_losses):
+        if i % 2 == 0: # if even
+            train_loss = trainer.loss_func.loss_tracker.epoch_losses[loss][-1]
+        else:
+            val_loss = trainer.loss_func.loss_tracker.epoch_losses[loss][-1]
+            if len(loss.split("_")) > 2:
+                losses_str += loss.split("_")[0]+f" | Train Loss: {train_loss}, Validation Loss: {val_loss}\n"
+            else:
+                losses_str += f"Train Loss: {train_loss}, Validation Loss: {val_loss}\n"
+        
+
     # Save the report
     report = MarkdownReport(Path(f'results/{params.report_name.split("_")[-2]}'), params.report_name, params.report_title)
     report.add_code_report("Parameters", str(params))
     report.add_text_report("Objective", "Training Models using the ModelTrainer Class")
     report.add_code_report("Model Used", str(torchinfo.summary(trainer.model,verbose=0)))
-    report.add_code_report("Layers of Model", str(trainer.model.layers))
-    #report.add_text_report("Loss Values", f"Train Loss: {trainer.train_loss[-1]}, Validation Loss: {trainer.validation_loss[-1]})
+    report.add_code_report("Model Properties", str(trainer))
+    report.add_text_report("Loss Values", losses_str)
     report.add_image_report("Loss Curves", fig_loss)
     report.add_image_report("Error Distributions", fig_dist)
     report.save_report()
@@ -358,7 +439,9 @@ def check_args(args):
         params.report_name = args.report_name
     if hasattr(args, 'report_title') and args.report_title is not None:
         params.report_title = args.report_title
-    
+    # if hasattr(args, 'hue') and args.hue is not None:
+    #     params.set_hue(args.hue)
+
     return params
 
 
@@ -384,6 +467,7 @@ def main():
     parser.add_argument('-m', '--momentum', type=float, help='Momentum')
     parser.add_argument('-rn', '--report_name', type=str, help='Report name')
     parser.add_argument('-rt', '--report_title', type=str, help='Report title')
+    # parser.add_argument('-hue', '--hue', type=int, help='Hue')
 
     # Parse the arguments
     args, _ = parser.parse_known_args()

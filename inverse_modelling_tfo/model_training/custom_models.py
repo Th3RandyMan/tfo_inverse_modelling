@@ -110,10 +110,10 @@ class PerceptronBD(nn.Module):
             self.layers.append(nn.BatchNorm1d(count))
             if dropout_rates is not None:
                 self.layers.append(nn.Dropout1d(dropout_rates[index - 1]))
-            if index == len(node_counts) - 2:   # If we are at the last layer, don't add the ReLU
-                self.layers.append(nn.Sigmoid())
-            else:
-                self.layers.append(nn.ReLU())
+            # if index == len(node_counts) - 2:   # If we are at the last layer, don't add the ReLU
+            #     self.layers.append(nn.Sigmoid())
+            # else:
+            self.layers.append(nn.ReLU())
             self.layers.append(nn.Linear(count, node_counts[index + 1]))
         self.layers.append(nn.Flatten())
         # self.layers.append(nn.Tanh())
@@ -121,6 +121,11 @@ class PerceptronBD(nn.Module):
 
     def forward(self, x):
         return self.model(x)
+    
+    def reset(self):
+        for layer in self.layers:
+            if hasattr(layer, 'reset_parameters'):
+                layer.reset_parameters()
 
 
 class FeatureResidual(torch.nn.Module):

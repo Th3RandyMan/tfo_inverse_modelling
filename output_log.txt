@@ -1,4 +1,5 @@
-Parameters(
+All done!
+(
 	output_labels: all
 	subset_type: filter1
 	apply_log: True
@@ -6,18 +7,20 @@ Parameters(
 	sample_size: 0.05
 	test_size: 0.2
 	batch_size: 32
-	num_epochs: 100
-	depth_of_layers: [20, 10, 10]
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
 	cnn_out_channels: [4, 8, 16]
 	cnn_split: 2
 	cnn_kernel_sizes: [10, 5, 3]
-	dropout: [0.5, 0.5, 0.5, 0.5]
+	dropout: [0, 0, 0, 0, 0]
 	cnn_dropout: [0.5, 0.5]
-	validation_method: Split the data randomly using np.random.shuffle with a split of 0.8
+	validation_method: None
 	criterion: None
 	optimizer: SGD
 	lr: 0.0005
 	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
 	bin_count: 50
 )
 y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
@@ -32,18 +35,20 @@ Parameters(
 	sample_size: 0.05
 	test_size: 0.2
 	batch_size: 32
-	num_epochs: 100
-	depth_of_layers: [20, 30, 20]
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
 	cnn_out_channels: [4, 8, 16]
 	cnn_split: 2
 	cnn_kernel_sizes: [10, 5, 3]
-	dropout: [0.5, 0.5, 0.5, 0.5]
+	dropout: [0, 0, 0, 0, 0]
 	cnn_dropout: [0.5, 0.5]
-	validation_method: Split the data randomly using np.random.shuffle with a split of 0.8
+	validation_method: None
 	criterion: None
 	optimizer: SGD
 	lr: 0.0005
 	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
 	bin_count: 50
 )
 y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
@@ -58,19 +63,3075 @@ Parameters(
 	sample_size: 0.05
 	test_size: 0.2
 	batch_size: 32
-	num_epochs: 100
-	depth_of_layers: [24, 16, 12]
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
 	cnn_out_channels: [4, 8, 16]
 	cnn_split: 2
 	cnn_kernel_sizes: [10, 5, 3]
-	dropout: [0.5, 0.5, 0.5, 0.5]
+	dropout: [0, 0, 0, 0, 0]
 	cnn_dropout: [0.5, 0.5]
-	validation_method: Split the data randomly using np.random.shuffle with a split of 0.8
+	validation_method: None
 	criterion: None
 	optimizer: SGD
 	lr: 0.0005
 	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
 	bin_count: 50
 )
 y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
 x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter1
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 32
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Radius
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
+Parameters(
+	output_labels: all
+	subset_type: filter2
+	apply_log: True
+	random_seed: 42
+	sample_size: 0.05
+	test_size: 0.2
+	batch_size: 512
+	num_epochs: 25
+	depth_of_layers: [40, 30, 20, 10]
+	cnn_out_channels: [4, 8, 16]
+	cnn_split: 2
+	cnn_kernel_sizes: [10, 5, 3]
+	dropout: [0, 0, 0, 0, 0]
+	cnn_dropout: [0.5, 0.5]
+	validation_method: None
+	criterion: None
+	optimizer: SGD
+	lr: 0.0005
+	momentum: 0.9
+	weight_decay: 0.0
+	hue: Fetal Displacement
+	bin_count: 50
+)
+y_columns: ['Maternal Wall Thickness', 'Fetal Radius', 'Fetal Displacement', 'Maternal Hb Concentration', 'Maternal Saturation', 'Fetal Hb Concentration', 'Fetal Saturation']
+x_columns: ['10.0_1.0', '15.0_1.0', '19.0_1.0', '24.0_1.0', '28.0_1.0', '33.0_1.0', '37.0_1.0', '41.0_1.0', '46.0_1.0', '50.0_1.0', '55.0_1.0', '59.0_1.0', '64.0_1.0', '68.0_1.0', '72.0_1.0', '77.0_1.0', '81.0_1.0', '86.0_1.0', '90.0_1.0', '94.0_1.0', '10.0_2.0', '15.0_2.0', '19.0_2.0', '24.0_2.0', '28.0_2.0', '33.0_2.0', '37.0_2.0', '41.0_2.0', '46.0_2.0', '50.0_2.0', '55.0_2.0', '59.0_2.0', '64.0_2.0', '68.0_2.0', '72.0_2.0', '77.0_2.0', '81.0_2.0', '86.0_2.0', '90.0_2.0', '94.0_2.0']
+In Features : 40
+Out Features: 7
